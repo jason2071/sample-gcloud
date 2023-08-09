@@ -5,16 +5,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello from Express on Google Cloud Run!');
-});
-
-app.get('/test', (req, res) => {
-  res.json({ message: 'Welcome to Thailand' });
-});
-
-app.get('/person', (req, res) => {
-  let name = req.query.name;
-  res.json({ message: `Welcome ${name}` });
+  res.send('API Running');
 });
 
 app.post('/product', (req, res) => {
