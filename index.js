@@ -8,6 +8,25 @@ app.get('/', (req, res) => {
   res.send('API Running');
 });
 
+const dateArr = [];
+app.get('/setdate', (req, res) => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+
+    dateArr.push(`${year}-${month}-${day} ${hours}:${minutes}:${seconds}`);
+
+    res.json({ success: true });
+});
+
+app.get('/getdate', (req, res) => {
+    res.json({ success: true, result: dateArr });
+});
+
 app.post('/product', (req, res) => {
   const { name, amount, price } = req.body;
   if (name && amount && price) {
